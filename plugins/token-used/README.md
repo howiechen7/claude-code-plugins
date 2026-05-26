@@ -26,6 +26,6 @@ All data is stored in `~/.claude/token-used/`:
 ## Installation
 
 ```bash
-/plugin marketplace add <your-marketplace>
-/plugin install token-used@<your-marketplace>
+/plugin marketplace add howiechen7/claude-code-plugins
+/plugin install token-used@howiechen7/claude-code-plugins
 ```
