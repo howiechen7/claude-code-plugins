@@ -27,5 +27,5 @@ All data is stored in `~/.claude/token-used/`:
 
 ```bash
 /plugin marketplace add howiechen7/claude-code-plugins
-/plugin install token-used@howiechen7/claude-code-plugins
+/plugin install token-used@howie-plugins
 ```
