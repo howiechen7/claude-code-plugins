@@ -1,0 +1,15 @@
+{
+  "name": "howie-plugins",
+  "owner": { "name": "Howie" },
+  "metadata": {
+    "description": "Personal Claude Code plugins",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "token-used",
+      "source": "./plugins/token-used",
+      "description": "Track and display LLM token usage per day, per model, and per API endpoint"
+    }
+  ]
+}
