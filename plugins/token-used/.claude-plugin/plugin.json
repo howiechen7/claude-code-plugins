@@ -1,6 +1,10 @@
 {
   "name": "token-used",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Track and display Claude Code LLM token usage per day, per model, and per API endpoint",
-  "author": { "name": "Howie" }
+  "author": { "name": "Howie" },
+  "statusLine": {
+    "type": "command",
+    "command": "python3 ${CLAUDE_PLUGIN_ROOT}/scripts/token_used.py statusline"
+  }
 }
