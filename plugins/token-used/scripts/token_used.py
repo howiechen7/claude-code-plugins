@@ -160,22 +160,25 @@ def cmd_statusline():
     today = datetime.now().strftime("%Y-%m-%d")
     current_month = datetime.now().strftime("%Y-%m")
 
-    today_in = today_out = month_in = month_out = 0
+    today_in = today_out = month_total = 0
     for r in records:
         date = r.get("date", "")
-        inp = r.get("input_tokens", 0) + r.get("cache_read_tokens", 0)
+        inp = (
+            r.get("input_tokens", 0)
+            + r.get("cache_read_tokens", 0)
+            + r.get("cache_creation_tokens", 0)
+        )
         out = r.get("output_tokens", 0)
         if date.startswith(current_month):
-            month_in += inp
-            month_out += out
+            month_total += inp + out
         if date == today:
             today_in += inp
             today_out += out
 
     print(
-        f"In:{format_tokens(today_in)} "
-        f"Out:{format_tokens(today_out)} "
-        f"Month:{format_tokens(month_in + month_out)}",
+        f"In: {format_tokens(today_in)} "
+        f"Out: {format_tokens(today_out)} "
+        f"Month: {format_tokens(month_total)}",
         end="",
     )
 
@@ -192,7 +195,11 @@ def cmd_display():
     groups = defaultdict(lambda: {"input": 0, "output": 0})
     for r in sorted(records, key=lambda x: x.get("date", "")):
         key = (r.get("date", ""), r.get("api", ""), r.get("model", ""))
-        groups[key]["input"] += r.get("input_tokens", 0) + r.get("cache_read_tokens", 0)
+        groups[key]["input"] += (
+            r.get("input_tokens", 0)
+            + r.get("cache_read_tokens", 0)
+            + r.get("cache_creation_tokens", 0)
+        )
         groups[key]["output"] += r.get("output_tokens", 0)
 
     col_widths = [10, 30, 20, 10, 10]
