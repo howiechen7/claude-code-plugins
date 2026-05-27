@@ -193,7 +193,7 @@ def cmd_display():
 
     # Aggregate by (date, api, model)
     groups = defaultdict(lambda: {"input": 0, "output": 0})
-    for r in sorted(records, key=lambda x: x.get("date", "")):
+    for r in sorted(records, key=lambda x: x.get("date", ""), reverse=True):
         key = (r.get("date", ""), r.get("api", ""), r.get("model", ""))
         groups[key]["input"] += (
             r.get("input_tokens", 0)
@@ -214,7 +214,7 @@ def cmd_display():
 
     print(row_str(header))
     print(separator)
-    for (date, api, model), totals in sorted(groups.items()):
+    for (date, api, model), totals in sorted(groups.items(), reverse=True):
         print(row_str([
             date,
             api,
