@@ -29,3 +29,11 @@ All data is stored in `~/.claude/token-used/`:
 /plugin marketplace add howiechen7/claude-code-plugins
 /plugin install token-used@howie-plugins
 ```
+
+Then run the setup command to enable the status line:
+
+```bash
+/token-used:setup
+```
+
+Restart Claude Code after setup completes.
