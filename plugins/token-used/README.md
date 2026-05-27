@@ -2,6 +2,8 @@
 
 Track and display Claude Code LLM token usage. Records usage automatically at the end of each session, and provides a `/token-used` slash command to view aggregated stats.
 
+![/token-used](image.png)
+
 ## Features
 
 - **Automatic recording** — hooks into `SessionEnd` to log token usage from every session
